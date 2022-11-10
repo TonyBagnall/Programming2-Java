@@ -1,5 +1,7 @@
 package swing;
 
+import week7.functors.swing.MyActionListener;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +23,7 @@ public class Smiley extends JPanel{
         happyButton=new JToggleButton("Happy");
         add(happyButton);
         System.out.println("Happy button "+happyButton.getClass().getName());
-        ActionListener f=new happyButtonAction();
+        ActionListener f=new MyActionListener();
         happyButton.addActionListener(f);
 
     }
