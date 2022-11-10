@@ -15,7 +15,9 @@ public class ShapeProcessor {
      * @return the shape with the biggest area
      */
     Shape biggestAreaShape(Shape shape1, Shape shape2){
-        return null;
+        if(shape1.area()>shape2.area())
+            return shape1;
+        return shape2;
     }
 
     /**
@@ -24,7 +26,10 @@ public class ShapeProcessor {
      * @return
      */
     double areaSum(Shape[] myShapes){
-        return 0;
+        double sum=0;
+        for(int i=0;i< myShapes.length;i++)
+            sum+=myShapes[i].area();
+        return sum;
     }
 
 
@@ -35,7 +40,11 @@ public class ShapeProcessor {
      * @return
      */
     static ArrayList<Shape> bigPerimeterShapes(Shape[] shapes, double threshold){
-        return null;
+        ArrayList<Shape> a= new ArrayList<>();
+        for(Shape s:shapes)
+            if(s.perimeter()>threshold)
+                a.add(s);
+        return a;
     }
 
     public static void main(String[] args) {
