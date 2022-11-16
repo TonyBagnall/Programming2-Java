@@ -1,4 +1,10 @@
 package week7.iterators.movies;
+/**
+ * Topic 3: Iterators (lecture week 7)
+ * Note the code is not polished! You should write better code with comments, proper encapsulation etc
+ *
+ * Implement an Iterator for MovieDatabase
+ */
 
 import week7.iterators.movies.Movie;
 

@@ -1,4 +1,6 @@
 package week7.functors.students;/*
+Topic 2: Functors
+
 functors.Student example used in Week 7 functor examples
  */
 
