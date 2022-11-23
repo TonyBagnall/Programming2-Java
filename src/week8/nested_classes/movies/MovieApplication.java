@@ -32,7 +32,7 @@ public class MovieApplication {
             public int compare(Movie o1, Movie o2) {
                 return 0;
             }
-        }
+        };
 
 
     }
