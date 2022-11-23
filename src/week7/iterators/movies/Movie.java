@@ -12,9 +12,9 @@ import java.util.Comparator;
         2. Show usage of both
         3. Show sorting an array
  */
-public class Movie {
+public class Movie implements Comparable<Movie>{
     String name;
-    int year;     // Year of release
+    public int year;     // Year of release
     int type;       // 0 == action, 1 == comedy, 2 == horror: Come back to with topic 5: enum types
 
     public Movie(String s, int y, int t){
@@ -39,5 +39,14 @@ public class Movie {
 //        Arrays.sort(myFilms);
 // Create Comparators
 //        Arrays.sort(myFilms, //Add comparator);
+    }
+
+    @Override
+    public int compareTo(Movie bob) {
+        return name.compareTo(bob.name);
+    }
+    @Override
+    public String toString(){
+        return name+","+year+","+type;
     }
 }

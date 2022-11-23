@@ -15,22 +15,20 @@ public class MovieIterator implements Iterator<Movie> {
     int pos;
     MovieIterator(MovieDatabase m){
         this.m=m;
-        pos=m.size()-1;
+        pos=0;
     }
-
-
 
     @Override
     public boolean hasNext() {
-        if(pos>=0)
+        if(pos<m.size())
             return true;
         return false;
     }
 
     @Override
     public Movie next() {
-        Movie movie=m.getMovie(pos);
-        pos--;
+        Movie movie=m.movies[pos];
+        pos++;
         return movie;
     }
 }

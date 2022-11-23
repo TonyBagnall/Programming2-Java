@@ -1,5 +1,7 @@
 package week8.nested_classes.movies;
 
+import java.util.Comparator;
+
 /**
  * Topic 2 and 3: Functors and Iterators (without nested classed)
  * Note the code is not polished! You should write better code with comments, proper encapsulation etc
@@ -9,11 +11,12 @@ package week8.nested_classes.movies;
         2. Show usage of both
         3. Show sorting an array
  */
-public class Movie {
+public class Movie implements Comparable<Movie>{
     String name;
     int year;     // Year of release
     int type;       // 0 == action, 1 == comedy, 2 == horror: Come back to with topic 5: enum types
 
+    double rating;
     public Movie(String s, int y, int t){
         name=s;
         year=y;
@@ -37,4 +40,26 @@ public class Movie {
 // Create Comparators
 //        Arrays.sort(myFilms, //Add comparator);
     }
+
+    @Override
+    public int compareTo(Movie o) {
+        return 0;
+    }
+    //Nested comparators here
+
+    public static class MovieCompareYear implements Comparator<Movie> {
+        @Override
+        public int compare(Movie o1, Movie o2) {
+            return o1.year - o2.year;
+        }
+    }
+
+
+    public static class MovieCompareType implements Comparator<Movie> {
+        @Override
+        public int compare(Movie o1, Movie o2) {
+            return o1.type - o2.type;
+        }
+    }
+
 }

@@ -4,6 +4,7 @@ package week8.nested_classes.movies;
  */
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MovieDatabase{
     private Movie[] movies;
@@ -41,6 +42,26 @@ public class MovieDatabase{
             System.out.println(n);
 
     }
+
+    public class MovieIterator implements Iterator<Movie> {
+        int pos;
+        MovieIterator(){
+            pos=0;
+        }
+        @Override
+        public boolean hasNext() {
+        if(pos<currentSize)
+            return true;
+        return false;
+        }
+        @Override
+        public Movie next() {
+           return movies[pos++];
+        }
+    }
+
+
+
 
 
 }

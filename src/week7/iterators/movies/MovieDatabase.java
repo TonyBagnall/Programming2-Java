@@ -8,8 +8,8 @@ import week7.iterators.movies.Movie;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class MovieDatabase{
-    private Movie[] movies;
+public class MovieDatabase implements Iterable<Movie>{
+    public Movie[] movies;
     private int max=100;
     private int currentSize=0;
     public MovieDatabase(){
@@ -46,4 +46,8 @@ public class MovieDatabase{
     }
 
 
+    @Override
+    public Iterator<Movie> iterator() {
+        return new MovieIterator(this);
+    }
 }

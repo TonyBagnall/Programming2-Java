@@ -1,4 +1,6 @@
 package week8.nested_classes.movies;
+import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Topic 3:
@@ -9,16 +11,29 @@ package week8.nested_classes.movies;
 public class MovieApplication {
 
     public static void main(String[] args) {
-        MovieDatabase imdb = new MovieDatabase();
         Movie[] movies = Movie.exampleArray();
-        imdb.addMovies(movies);
         for(Movie m: movies)
             System.out.println(m);
-        MovieIterator it = new MovieIterator(imdb);
-        while(it.hasNext())
-            System.out.println(it.next());
-//        for(Movie m: imdb)
-//            System.out.println(m);
+//        Arrays.sort(movies);
+        System.out.println(" Post sort");
+        for(Movie m: movies)
+            System.out.println(m);
+        Comparator<Movie> cmp = new Movie.MovieCompareType();
+        Arrays.sort(movies,cmp);
+        class MyCmp implements Comparator<Movie>{
+            @Override
+            public int compare(Movie o1, Movie o2) {
+                return 0;
+            }
+
+        }
+        Comparator<Movie> myCmp = new Comparator<Movie>() {
+            @Override
+            public int compare(Movie o1, Movie o2) {
+                return 0;
+            }
+        }
+
 
     }
 }
