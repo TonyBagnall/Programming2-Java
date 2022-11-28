@@ -18,6 +18,20 @@ public class MovieApplication {
         System.out.println(" Post sort");
         for(Movie m: movies)
             System.out.println(m);
+        MovieDatabase imdb = new MovieDatabase();
+        imdb.addMovies(movies);
+        for(Movie m:imdb)
+            System.out.println(m);
+        System.out.println("***** BACKWARDS ***********");
+        imdb.setGoBackward();
+        for(Movie m:imdb)
+            System.out.println(m);
+
+
+/*
+
+
+
         Comparator<Movie> cmp = new Movie.MovieCompareType();
         Arrays.sort(movies,cmp);
         class MyCmp implements Comparator<Movie>{
@@ -34,6 +48,6 @@ public class MovieApplication {
             }
         };
 
-
+*/
     }
 }

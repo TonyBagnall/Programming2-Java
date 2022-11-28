@@ -51,7 +51,7 @@ public class BasicUsage {
         MyContainer first = new MyContainer();
         first.x=10;
         MyContainer second = new MyContainer();
-
+        second.y=44;
 
 
     }

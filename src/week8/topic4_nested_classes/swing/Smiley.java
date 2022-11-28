@@ -22,9 +22,22 @@ public class Smiley extends JPanel{
         add(happyButton);
         System.out.println("Happy button "+happyButton.getClass().getName());
         ActionListener f=new HappyButtonAction();
-        happyButton.addActionListener(f);
         //Example Anonymous inner class here
-
+        ActionListener temp = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(happy){
+                    happyButton.setText("HURRAH");
+                    happy=false;
+                }
+                else{
+                    happyButton.setText("BOO");
+                    happy=true;
+                }
+                repaint();
+            }
+        };
+        happyButton.addActionListener(temp);
 
     }
     public void paintComponent(Graphics gc) {

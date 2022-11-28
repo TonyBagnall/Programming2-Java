@@ -1,4 +1,4 @@
-package week8.topic4_nested_classes.movies;
+package week8.topic6_lambdas;
 
 import java.util.Comparator;
 
@@ -12,30 +12,39 @@ import java.util.Comparator;
         3. Show sorting an array
  */
 public class Movie implements Comparable<Movie>{
-    String name;
-    int year;     // Year of release
-    int type;       // 0 == action, 1 == comedy, 2 == horror: Come back to with topic 5: enum types
+    public String name;
+    public int year;     // Year of release
+
+    enum FilmType{ACTION,COMEDY,HORROR}
+
+    FilmType type;
 
     double rating;
-    public Movie(String s, int y, int t){
+    public Movie(String s, int y, FilmType t){
         name=s;
         year=y;
         type =t;
     }
-
+    public boolean myMethod(FilmType t){
+        if(type==t)
+            return true;
+        return false;
+    }
     public static Movie[] exampleArray(){
         Movie[] m = new Movie[4];
-        m[0] = new Movie("Unforgiven", 1994,0);
-        m[1] = new Movie("Life of Brian", 1979, 1);
-        m[2] = new Movie("Goodfellas", 1990,1);
-        m[3] = new Movie("Alien",1979,2);
+        m[0] = new Movie("Unforgiven", 1994,FilmType.ACTION);
+        m[1] = new Movie("Life of Brian", 1979, FilmType.COMEDY);
+        m[2] = new Movie("Goodfellas", 1990,FilmType.ACTION);
+    m[3] = new Movie("Alien",1979,FilmType.HORROR);
         return m;
     }
 
     public static void main(String[] args) {
-        Movie n=new Movie("Unforgiven", 1994,0);
+        Movie n=new Movie("Unforgiven", 1994,FilmType.ACTION);
         Movie[] myFilms = exampleArray();
-// Use Comparable
+        FilmType t = FilmType.COMEDY;
+
+        // Use Comparable
 //        Arrays.sort(myFilms);
 // Create Comparators
 //        Arrays.sort(myFilms, //Add comparator);

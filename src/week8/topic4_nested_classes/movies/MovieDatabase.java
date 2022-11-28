@@ -6,7 +6,7 @@ package week8.topic4_nested_classes.movies;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class MovieDatabase{
+public class MovieDatabase implements Iterable<Movie>{
     private Movie[] movies;
     private int max=100;
     private int currentSize=0;
@@ -43,7 +43,18 @@ public class MovieDatabase{
 
     }
 
-    public class MovieIterator implements Iterator<Movie> {
+    private boolean backwards = false;
+    public void setGoBackward(){
+        backwards=true;
+    }
+    @Override
+    public Iterator<Movie> iterator() {
+        if(backwards)
+            return new MovieBackwardsIterator();
+        return new MovieIterator();
+    }
+
+    private class MovieIterator implements Iterator<Movie> {
         int pos;
         MovieIterator(){
             pos=0;
@@ -57,6 +68,23 @@ public class MovieDatabase{
         @Override
         public Movie next() {
            return movies[pos++];
+        }
+    }
+
+    private class MovieBackwardsIterator implements Iterator<Movie> {
+        int pos;
+        MovieBackwardsIterator(){
+            pos=currentSize-1;
+        }
+        @Override
+        public boolean hasNext() {
+            if(pos>=0)
+                return true;
+            return false;
+        }
+        @Override
+        public Movie next() {
+            return movies[pos--];
         }
     }
 
