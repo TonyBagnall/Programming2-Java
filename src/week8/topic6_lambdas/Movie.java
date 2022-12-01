@@ -73,7 +73,7 @@ public class Movie implements Comparable<Movie>{
     public static class MovieCompareType implements Comparator<Movie> {
         @Override
         public int compare(Movie o1, Movie o2) {
-            return o1.type - o2.type;
+            return o1.type.compareTo(o2.type);
         }
     }
     public String toString(){

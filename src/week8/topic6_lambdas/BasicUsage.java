@@ -10,8 +10,8 @@ public class BasicUsage {
 
     public static void main(String[] args) {
         Movie[] movies = new Movie[2];
-        movies[0] = new Movie("FOO",1999,0);
-        movies[1] = new Movie("BAR",2022,1);
+        movies[0] = new Movie("FOO",1999, Movie.FilmType.COMEDY);
+        movies[1] = new Movie("BAR",2022, Movie.FilmType.ACTION);
 
         for(Movie m: movies)
             System.out.println(m);
