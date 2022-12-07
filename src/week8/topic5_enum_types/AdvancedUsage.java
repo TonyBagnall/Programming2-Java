@@ -55,6 +55,8 @@ public class AdvancedUsage {
         temp();
     }
     static void temp(){
+        Country[] x = {Country.ENGLAND, Country.FRANCE};
+
         Country e = Country.ENGLAND;
         System.out.println(" population = "+e.population);
 

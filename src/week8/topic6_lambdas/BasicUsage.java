@@ -1,4 +1,7 @@
 package week8.topic6_lambdas;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.ObjectOutputStream;
 import java.util.Comparator;
 import java.util.function.Predicate;
 
@@ -34,7 +37,9 @@ public class BasicUsage {
         };
         int c = myCmp.compare(movies[0],movies[1]);
         System.out.println(" Anonymous Comaprator = "+c);
-        Comparator<Movie> myLambda = (o1, o2) -> o2.year -o1.year;
+        ActionListener al  =(ActionEvent e)-> System.out.println("Helle");
+        Comparator<Movie> myLambda = (Movie o1,Movie o2) ->{return(o2.year -o1.year);};
+
         int d= myLambda.compare(movies[0],movies[1]);
         System.out.println(" Lambda comparator = "+d);
         Comparator<Movie> myLambda2 = (o1, o2) -> {
